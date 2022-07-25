@@ -144,6 +144,7 @@ const withConfig = async (nextConfig = { env: {} }) => {
   const conf = await initConfig()
   nextConfig.publicRuntimeConfig = nextConfig.publicRuntimeConfig || {}
   nextConfig.publicRuntimeConfig.config = conf
+  nextConfig.env = nextConfig.env || {}
   nextConfig.env.CONFIG = JSON.stringify(conf)
 
   return nextConfig
