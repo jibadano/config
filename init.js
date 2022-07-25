@@ -54,13 +54,12 @@ const processSubmodule = (values = {}, name, def, mode) => {
 
     public = public.concat(values.public || [])
   }
-
+  values['host'] = values['host'] || '0.0.0.0'
+  values['port'] = process.env.PORT || values['port'] || 80
   if (!values['url']) {
     let url = values['host'] || 'http://localhost'
     url += values['port'] ? ':' + values['port'] : ''
     values['url'] = url
-    values['host'] = values['host'] || '0.0.0.0'
-    values['port'] = process.env.PORT || values['port'] || 80
   }
 
   if (public.length && mode == 'public') {
