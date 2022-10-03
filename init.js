@@ -142,7 +142,7 @@ const initConfig = async (mode = 'server') => {
 }
 
 const withConfig = async (nextConfig = { env: {} }) => {
-  const conf = await initConfig()
+  const conf = await initConfig('public')
   nextConfig.publicRuntimeConfig = nextConfig.publicRuntimeConfig || {}
   nextConfig.publicRuntimeConfig.config = conf
   nextConfig.env = nextConfig.env || {}
