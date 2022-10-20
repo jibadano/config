@@ -1,8 +1,5 @@
 const lodashGet = require('lodash/get')
-const getConfig = require('next/config').default
-const config = process.env.CONFIG
-  ? JSON.parse(process.env.CONFIG)
-  : getConfig().publicRuntimeConfig.config
+const config = process.env.CONFIG ? JSON.parse(process.env.CONFIG) : {}
 
 const get = (field = '') =>
   field.startsWith('..')
